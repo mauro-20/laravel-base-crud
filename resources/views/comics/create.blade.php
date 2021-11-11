@@ -41,6 +41,6 @@
 		<input type="text" class="form-control" id="type" name="type" placeholder="Insert comic type">
 	</div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Save</button>
   </form>
 @endsection

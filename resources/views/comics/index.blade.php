@@ -23,11 +23,19 @@
     <td>{{$comic["title"]}}</td>
     <td>{{Str::substr($comic["description"], 0, 50,) . ' ...'}}</td>
     <td>{{Str::substr($comic["thumb"], 0, 20,) . ' ...'}}</td>
-    <td>{{$comic["price"]}}</td>
+    <td>{{$comic["price"].'$'}}</td>
     <td>{{$comic["series"]}}</td>
     <td>{{$comic["sale_date"]}}</td>
     <td>{{$comic["type"]}}</td>
-    <td><a href="{{route("comics.show", $comic["id"])}}"><button type="button" class="btn btn-primary">Visualizza</button></a></td>
+    <td><a href="{{route("comics.show", $comic["id"])}}"><button type="button" class="btn btn-primary">Show</button></a></td>
+    <td><a href="{{route("comics.edit", $comic["id"])}}"><button type="button" class="btn btn-warning">Edit</button></a></td>
+    <td>
+      <form action="{{route("comics.destroy", $comic['id'])}}" method="post">
+        @csrf
+        @method('delete')
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+    </td>
     </tr>
     @endforeach
   </tbody>
